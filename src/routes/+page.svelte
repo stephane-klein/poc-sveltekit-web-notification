@@ -21,8 +21,6 @@ function urlBase64ToUint8Array(base64String) {
 onMount(async () => {
     console.log(browser);
     if (browser) {
-        console.log('browser');
-        console.log(window);
         if ('serviceWorker' in navigator && 'PushManager' in window) {
             try {
                 const registration = await navigator.serviceWorker.getRegistration();
@@ -36,13 +34,11 @@ onMount(async () => {
                             applicationServerKey: urlBase64ToUint8Array(PUBLIC_VAPID_PUBLIC_KEY)
                         });
 
-                        console.log('subscription:', subscription);
-                        /*
                         await fetch('/api/subscribe', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(subscription)
-                        });*/
+                        });
                     }
                 } else {
                     console.log('No Service Worker registered');

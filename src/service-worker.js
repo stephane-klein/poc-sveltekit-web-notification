@@ -4,7 +4,7 @@ self.addEventListener('push', event => {
     console.log('addEventListener', data);
 
     const options = {
-        body: data.body || 'Nouvelle notification',
+        body: data.body || 'New notification',
         tag: 'default'
     };
 
